@@ -5,7 +5,7 @@
 <title>Custom Analog Clock Widget</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <style>
     /* Base layout */
     body {
@@ -14,14 +14,14 @@
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        background-color: transparent; /* Transparent background idea (using black for testing) */
+        background-color: #191919; /* Transparent background idea (using black for testing) */
     }
 
     /* Clock face container */
     .clock {
         width: 300px; /* Clock size */
         height: 300px;
-        background-color: white; /* White clock face background */
+        background-color: #E9E9E9; /* White clock face background */
         border-radius: 50%;
         position: relative;
     }
@@ -30,10 +30,10 @@
     .number {
         position: absolute;
         text-align: center;
-        color: transparent;
-        font-weight: 800; /* ExtraBold */
+        color: black;
+        font-weight: 700; /* ExtraBold */
         font-size: 32px; /* Number size */
-        font-family: 'Roboto', sans-serif;
+        font-family: "Barlow", sans-serif;
 
         /* Base centering for numbers */
         top: 50%;
@@ -68,7 +68,7 @@
         position: absolute;
         width: 2px; /* 1-minute tick thickness */
         height: 8px; /* 1-minute tick length */
-        background-color: black;
+        background-color: #191919;
         left: 50%;
         margin-left: -1px; /* Shift left by half width to center align exactly */
         top: 0; /* Stick to the edge */
@@ -87,7 +87,7 @@
         left: 50%;
         bottom: 50%;
         transform-origin: bottom center;
-        background-color: black;
+        background-color: #191919;
         border-radius: 4px;
     }
     .hour-hand {
@@ -103,7 +103,7 @@
         z-index: 4;
     }
     .second-hand {
-        width: 2px; /* Second hand thickness */
+        width: 3px; /* Second hand thickness */
         height: 110px; /* Second hand length */
         background-color: red; /* Second hand color */
         margin-left: -1px; /* Margin for centering */
@@ -187,3 +187,4 @@
 
 </body>
 </html>
+
