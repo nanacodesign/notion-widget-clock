@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Custom Analog Clock Widget</title>
+<title>Custom Analog Clock Widget (200px)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -14,14 +14,14 @@
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        background-color: transparent; /* Transparent background idea (using black for testing) */
+        background-color: transparent; 
     }
 
-    /* Clock face container */
+    /* Clock face container - SIZE UPDATED */
     .clock {
-        width: 300px; /* Clock size */
-        height: 300px;
-        background-color: hsla(0, 0%, 100%); /* White clock face background */
+        width: 200px;  /* 300px -> 200px */
+        height: 200px; /* 300px -> 200px */
+        background-color: hsla(0, 0%, 100%, 0.8);
         border-radius: 50%;
         position: relative;
     }
@@ -31,32 +31,35 @@
         position: absolute;
         text-align: center;
         color: #191919;
-        font-weight: 700; /* ExtraBold */
-        font-size: 32px; /* Number size */
+        font-weight: 700;
+        font-size: 22px; /* 32px -> 22px (Scaled down) */
         font-family: "Barlow", sans-serif;
 
         /* Base centering for numbers */
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 40px; /* Number box width */
-        height: 40px; /* Number box height */
-        line-height: 40px; /* Vertical centering */
+        width: 30px; /* Scaled down */
+        height: 30px; /* Scaled down */
+        line-height: 30px;
     }
 
-    /* Fine-tuned number positions (aligned to ticks - radius ~115px) */
-    .num12 { transform: translate(-50%, -50%) translateY(-115px); }
-    .num1  { transform: translate(-50%, -50%) rotate(30deg) translateY(-115px) rotate(-30deg); }
-    .num2  { transform: translate(-50%, -50%) rotate(60deg) translateY(-115px) rotate(-60deg); }
-    .num3  { transform: translate(-50%, -50%) rotate(90deg) translateY(-115px) rotate(-90deg); }
-    .num4  { transform: translate(-50%, -50%) rotate(120deg) translateY(-115px) rotate(-120deg); }
-    .num5  { transform: translate(-50%, -50%) rotate(150deg) translateY(-115px) rotate(-150deg); }
-    .num6  { transform: translate(-50%, -50%) translateY(115px); }
-    .num7  { transform: translate(-50%, -50%) rotate(210deg) translateY(-115px) rotate(-210deg); }
-    .num8  { transform: translate(-50%, -50%) rotate(240deg) translateY(-115px) rotate(-240deg); }
-    .num9  { transform: translate(-50%, -50%) rotate(270deg) translateY(-115px) rotate(-270deg); }
-    .num10 { transform: translate(-50%, -50%) rotate(300deg) translateY(-115px) rotate(-300deg); }
-    .num11 { transform: translate(-50%, -50%) rotate(330deg) translateY(-115px) rotate(-330deg); }
+    /* Fine-tuned number positions 
+       Radius was ~115px for 300px clock. 
+       New Radius ~76px for 200px clock.
+    */
+    .num12 { transform: translate(-50%, -50%) translateY(-76px); }
+    .num1  { transform: translate(-50%, -50%) rotate(30deg) translateY(-76px) rotate(-30deg); }
+    .num2  { transform: translate(-50%, -50%) rotate(60deg) translateY(-76px) rotate(-60deg); }
+    .num3  { transform: translate(-50%, -50%) rotate(90deg) translateY(-76px) rotate(-90deg); }
+    .num4  { transform: translate(-50%, -50%) rotate(120deg) translateY(-76px) rotate(-120deg); }
+    .num5  { transform: translate(-50%, -50%) rotate(150deg) translateY(-76px) rotate(-150deg); }
+    .num6  { transform: translate(-50%, -50%) translateY(76px); }
+    .num7  { transform: translate(-50%, -50%) rotate(210deg) translateY(-76px) rotate(-210deg); }
+    .num8  { transform: translate(-50%, -50%) rotate(240deg) translateY(-76px) rotate(-240deg); }
+    .num9  { transform: translate(-50%, -50%) rotate(270deg) translateY(-76px) rotate(-270deg); }
+    .num10 { transform: translate(-50%, -50%) rotate(300deg) translateY(-76px) rotate(-300deg); }
+    .num11 { transform: translate(-50%, -50%) rotate(330deg) translateY(-76px) rotate(-330deg); }
 
     /* Tick marks */
     .ticks {
@@ -66,22 +69,24 @@
     }
     .tick {
         position: absolute;
-        width: 2px; /* 1-minute tick thickness */
-        height: 8px; /* 1-minute tick length */
+        width: 1.5px; /* Thinner */
+        height: 6px;  /* Shorter */
         background-color: #191919;
         left: 50%;
-        margin-left: -1px; /* Shift left by half width to center align exactly */
-        top: 0; /* Stick to the edge */
-        /* Rotate around the clock center (radius 150px) */
-        transform-origin: 50% 150px;
+        margin-left: -0.75px; 
+        top: 0; 
+        /* Rotate around the clock center 
+           Radius is now 100px (half of 200px width) 
+        */
+        transform-origin: 50% 100px; 
     }
     .tick.major {
-        width: 6px; /* 5-minute tick thickness */
-        height: 8px; /* 5-minute tick length */
-        margin-left: -3px; /* Shift left by half width */
+        width: 4px; /* Scaled down */
+        height: 7px; 
+        margin-left: -2px; 
     }
 
-    /* Hands */
+    /* Hands - All dimensions scaled by approx 2/3 */
     .hand {
         position: absolute;
         left: 50%;
@@ -91,22 +96,22 @@
         border-radius: 4px;
     }
     .hour-hand {
-        width: 10px; /* Hour hand thickness */
-        height: 85px; /* Hour hand length */
-        margin-left: -5.5px; /* Margin for centering */
+        width: 7px;       /* 10px -> 7px */
+        height: 55px;     /* 85px -> 55px */
+        margin-left: -3.5px; 
         z-index: 3;
     }
     .minute-hand {
-        width: 8px; /* Minute hand thickness */
-        height: 140px; /* Minute hand length */
-        margin-left: -4.5px; /* Margin for centering */
+        width: 6px;       /* 8px -> 6px */
+        height: 90px;     /* 140px -> 90px */
+        margin-left: -3px; 
         z-index: 4;
     }
     .second-hand {
-        width: 3px; /* Second hand thickness */
-        height: 110px; /* Second hand length */
-        background-color: red; /* Second hand color */
-        margin-left: -1px; /* Margin for centering */
+        width: 2px;       /* 3px -> 2px */
+        height: 75px;     /* 110px -> 75px */
+        background-color: red; 
+        margin-left: -1px; 
         z-index: 5;
     }
 
@@ -115,8 +120,8 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 18px;
-        height: 18px;
+        width: 12px;      /* 18px -> 12px */
+        height: 12px;     /* 18px -> 12px */
         background-color: red;
         border-radius: 50%;
         transform: translate(-50%, -50%);
@@ -150,7 +155,7 @@
 </div>
 
 <script>
-    // Create tick marks (60 total, with a major tick every 5 minutes)
+    // Create tick marks
     const ticksContainer = document.getElementById('ticks');
     for (let i = 0; i < 60; i++) {
         const tick = document.createElement('div');
@@ -158,19 +163,17 @@
         if (i % 5 === 0) {
             tick.classList.add('major');
         }
-        // Place each tick by rotating it (6 degrees per minute)
         tick.style.transform = `rotate(${i * 6}deg)`;
         ticksContainer.appendChild(tick);
     }
 
-    // Update the clock hands based on the current time
+    // Update the clock hands
     function updateClock() {
         const now = new Date();
         const seconds = now.getSeconds();
         const minutes = now.getMinutes();
         const hours = now.getHours();
 
-        // Convert time values into degrees
         const secondDeg = (seconds / 60) * 360;
         const minuteDeg = (minutes / 60) * 360 + (seconds / 60) * 6;
         const hourDeg = ((hours % 12) / 12) * 360 + (minutes / 60) * 30;
@@ -180,11 +183,9 @@
         document.getElementById('hourHand').style.transform = `rotate(${hourDeg}deg)`;
     }
 
-    // Run every second
     setInterval(updateClock, 1000);
-    updateClock(); // Initial run
+    updateClock(); 
 </script>
 
 </body>
 </html>
-
